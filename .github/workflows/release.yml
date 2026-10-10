@@ -1,0 +1,28 @@
+name: Publish extension update
+on:
+  push:
+    branches: [codex/initial-import]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: extension-release
+  cancel-in-progress: false
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build update package
+        run: python3 tools/build_release.py --version "0.2.${{ github.run_number }}" --output dist
+      - name: Publish update
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: v0.2.${{ github.run_number }}
+        run: |
+          if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
+            gh release upload "$RELEASE_TAG" "dist/FreeKill_diy_sunjiale-$RELEASE_TAG.zip" --clobber
+          else
+            gh release create "$RELEASE_TAG" "dist/FreeKill_diy_sunjiale-$RELEASE_TAG.zip" --target "$GITHUB_SHA" --title "孙佳乐扩展 $RELEASE_TAG" --notes "此版本由上传的源码自动打包。关闭新月杀后双击更新即可安装。适用于新月杀 v0.5.25。" --latest
+          fi

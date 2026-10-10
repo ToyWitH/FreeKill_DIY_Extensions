@@ -8,3 +8,9 @@ freekill.client.config.json
 freekill.server.config.json
 __pycache__/
 dist/
+
+.sunjiale-update*/
+.sunjiale-update*
+update-backups/
+_tools/
+_reference/

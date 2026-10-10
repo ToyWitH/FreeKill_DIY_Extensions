@@ -4,19 +4,27 @@
 
 神势力，男性，4点体力。武将显示名称为“孙佳乐”，内部标识已统一为sunjiale。
 
-## 安装
+## 下载与一键更新
 
-推荐从本仓库的 **Releases** 下载“神孙佳乐-测试版.zip”。关闭游戏，完整解压后，在解压目录运行：
+朋友第一次使用，下载[懒人包](https://github.com/ToyWitH/FreeKill_diy_sunjiale/releases/download/v0.2.0/FreeKill-Sunjiale-Portable-v0.2.0.zip)，完整解压后双击“双击启动.cmd”。游戏与扩展已经装好。
+
+以后更新：完全关闭游戏 → 双击“双击更新.cmd” → 等待成功 → 重新启动。不需要GitHub账号。更新器只更新孙佳乐扩展、5个兼容文件和更新入口，保留账号、设置、录像与其他扩展；遇到失败自动恢复旧版。备份在游戏目录 `update-backups`。
+
+已有新月杀v0.5.25的用户也可在[最新发布](https://github.com/ToyWitH/FreeKill_diy_sunjiale/releases/latest)下载 `FreeKill_diy_sunjiale-v版本.zip`，完整解压后首次安装：
 
 ```powershell
 powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath "C:\你的游戏目录\FreeKill-release"
 ```
 
-`GamePath` 指向含 `FreeKill.exe` 的目录。安装器会核对版本并备份兼容文件；检测到同名扩展时会停止，避免覆盖已有修改。已安装的用户请先备份原扩展再更新。
+已有旧扩展但没有更新入口的用户，建议首次换用新懒人包。安装器检测到同名扩展时会停止。
 
-也可以将本仓库克隆到游戏的 `packages/diy_sunjiale` 目录。仅克隆扩展不会自动应用兼容补丁，仍需核对并安装 `client-patches` 中的5个文件；推荐使用发行版安装器。
+## 维护与发布
 
-本仓库与扩展安装包不包含完整游戏客户端。官方游戏：[Qsgs-Fans/FreeKill](https://github.com/Qsgs-Fans/FreeKill)。
+把改好的源码提交到默认分支 `codex/initial-import`，GitHub Actions会自动打包并发布稳定版本 `v0.2.运行编号`。朋友再次双击更新，就会获取最新发布的扩展，不需要重新下载完整游戏。运行失败时，在仓库Actions中查看发布任务。
+
+更新源是本仓库的最新稳定Release；普通源码上传需要等待自动发布成功。每个安装包包含逐文件清单，更新器验证GitHub提供的SHA256和全部文件SHA256后安装；未知游戏补丁会被拒绝。
+
+自动发布的小包不包含完整游戏。懒人包仅供首次下载，其游戏仍是0.5.25；升级游戏本体需另行制作匹配包。
 
 ## 技能与操作
 
@@ -36,6 +44,8 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath
 连接同一服务器并加入同一房间后，是否可选该武将仍取决于房间的武将设置。客户端装好扩展，不代表任意公共服务器都支持这个武将。
 
 ## 检查范围
+
+更新器已在Windows PowerShell上通过首次安装、升级、重复运行、隐私数据保留、校验失败、越界路径、补丁冲突、写入失败回滚、下一版补丁及防降级检查。测试脚本需在完整开发工作区使用原版游戏文件运行。
 
 已通过32项技能场景、Lua 5.4语法与核心注册检查，以及4项实际客户端检查。客户端检查使用真实的 `ClientPlayer`，覆盖声明筛选、暗置牌重铸拦截及展示后按钮刷新。
 
