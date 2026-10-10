@@ -13,6 +13,8 @@
 
 完整技能描述与设计约定见 [武将设计.md](武将设计.md)。武将的实际显示名称和技能说明以游戏内为准。
 
+名称统一为“标签·姓名”，卡牌右下角的扩展包类别统一显示“DIY武将”。立绘以人物主体居中的竖版构图呈现。
+
 ## 下载与安装
 
 **首次使用**：下载[完整懒人包](https://github.com/ToyWitH/FreeKill_DIY_Extensions/releases/download/v0.2.3/FreeKill-Sunjiale-Portable-v0.2.3.zip)，完整解压后双击「双击启动.cmd」。游戏、当前武将与兼容补丁已经装好。该懒人包为 v0.2.3，首次启动前可双击更新到最新版本。
