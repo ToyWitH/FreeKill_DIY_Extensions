@@ -7,6 +7,9 @@ general:addSkills{
   "diyzjl_nitian", "diyzjl_tangshi", "diyzjl_gouyun", "diyzjl_yingli",
 }
 
+local wei = General:new(extension, "diywei__sunjiale", "wei", 4, 8)
+wei:addSkills{"diywei_juanshi", "diywei_baotie"}
+
 Fk:loadTranslationTable((require "packages.diy_sunjiale.translations"))
 
 return { extension }

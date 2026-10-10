@@ -1,5 +1,54 @@
 -- Run with the installed FreeKill.exe --testfile <absolute path>.
 Testdiyzjl_ui_path = {
+  testWeiGeneralAndExtraSlash = function()
+    local util = require "ltk.client.util"
+    local data = util:getGeneralData("diywei__sunjiale")
+    lu.assertEquals(data.hp, 4)
+    lu.assertEquals(data.maxHp, 8)
+    lu.assertEquals(data.kingdom, "wei")
+    lu.assertEquals(Fk:translate("diywei__sunjiale", "zh_CN"), "威孙佳乐")
+    lu.assertEquals(#Fk.generals.diywei__sunjiale.other_skills, 2)
+    local ClientPlayer = require "ltk.client.clientplayer"
+    local p = ClientPlayer:new({getId = function() return 997 end})
+    p.id, p.hp, p.maxHp, p.phase = 997, 4, 8, Player.Play
+    p.hasSkill = function(_, name) return name == "diywei_juanshi" or name == "diywei_baotie" end
+    lu.assertNil(p.room)
+    lu.assertTrue(Fk.skills.diywei_juanshi:canUse(p))
+    p.phase = Player.NotActive
+    lu.assertFalse(Fk.skills.diywei_juanshi:canUse(p))
+    p.phase = Player.Play
+    local savedRoom, savedClient = RoomInstance, ClientInstance
+    RoomInstance = nil
+    ClientInstance = {status_skills = {}}
+    for _, effect in ipairs(Fk.skill_skels.diywei_baotie.effects) do
+      if effect:isInstanceOf(TargetModSkill) then ClientInstance.status_skills[TargetModSkill] = {effect} end
+    end
+    local slash = Fk:cloneCard("slash")
+    p:addCardUseHistory("slash", 1)
+    lu.assertFalse(slash.skill:withinTimesLimit(p, Player.HistoryPhase, slash, "slash") or false)
+    p:setMark("@diywei_baotie-turn", 1)
+    lu.assertTrue(slash.skill:withinTimesLimit(p, Player.HistoryPhase, slash, "slash"))
+    p:addCardUseHistory("slash", 1)
+    lu.assertFalse(slash.skill:withinTimesLimit(p, Player.HistoryPhase, slash, "slash") or false)
+    RoomInstance, ClientInstance = savedRoom, savedClient
+  end,
+  testWeiPilePatterns = function()
+    local savedRoom = RoomInstance
+    RoomInstance = {card_marks = {}, filtered_cards = {}}
+    local room = {draw_pile = {}, discard_pile = {}, random = function(_, lo) return lo end}
+    local names = {{"slash", Card.Heart}, {"peach", Card.Diamond}, {"ex_nihilo", Card.Heart},
+      {"jink", Card.Spade}, {"crossbow", Card.Club}}
+    for i, row in ipairs(names) do
+      local card = Fk:cloneCard(row[1], row[2], 7)
+      card.id = 15000 + i; Fk.cards[card.id] = card; table.insert(room.draw_pile, card.id)
+    end
+    lu.assertEquals(Room.getCardsFromPileByRule(room, ".|.|heart|.|.|basic", 1, "drawPile"), {15001})
+    lu.assertEquals(Room.getCardsFromPileByRule(room, ".|.|spade,club", 4, "drawPile"), {15004, 15005})
+    room.draw_pile = {}; room.discard_pile = {15001}
+    lu.assertEquals(Room.getCardsFromPileByRule(room, ".|.|heart|.|.|basic", 1, "drawPile"), {})
+    for i = 1, #names do Fk.cards[15000 + i] = nil end
+    RoomInstance = savedRoom
+  end,
   testSelfTricksAndVisibleEquipment = function()
     local H = require "packages.diy_sunjiale.helpers"
     local p = Player:new()
