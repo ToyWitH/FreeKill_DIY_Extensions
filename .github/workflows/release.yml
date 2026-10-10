@@ -24,5 +24,5 @@ jobs:
           if gh release view "$RELEASE_TAG" >/dev/null 2>&1; then
             gh release upload "$RELEASE_TAG" "dist/FreeKill_diy_sunjiale-$RELEASE_TAG.zip" --clobber
           else
-            gh release create "$RELEASE_TAG" "dist/FreeKill_diy_sunjiale-$RELEASE_TAG.zip" --target "$GITHUB_SHA" --title "孙佳乐扩展 $RELEASE_TAG" --notes "此版本由上传的源码自动打包。关闭新月杀后双击更新即可安装。适用于新月杀 v0.5.25。" --latest
+            gh release create "$RELEASE_TAG" "dist/FreeKill_diy_sunjiale-$RELEASE_TAG.zip" --target "$GITHUB_SHA" --title "新月杀DIY武将扩展 $RELEASE_TAG" --notes "此版本由上传的源码自动打包。关闭新月杀后双击更新即可安装。适用于新月杀 v0.5.25。" --latest
           fi

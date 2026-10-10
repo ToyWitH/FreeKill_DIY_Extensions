@@ -31,4 +31,4 @@ Copy-Item -LiteralPath $taskSource -Destination $taskDestination -Recurse
 foreach ($taskName in @('update-sunjiale.ps1', '双击更新.cmd')) {
   Copy-Item -LiteralPath (Join-Path $PSScriptRoot $taskName) -Destination (Join-Path $taskGameRoot $taskName) -Force
 }
-Write-Output '神孙佳乐扩展与客户端兼容补丁已安装。请重启新月杀。'
+Write-Output 'DIY武将扩展与兼容补丁已安装。请重启新月杀。'

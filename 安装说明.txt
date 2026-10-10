@@ -1,4 +1,4 @@
-神孙佳乐 DIY 扩展安装说明（Windows，新月杀 v0.5.25）
+新月杀 DIY 武将扩展安装说明（Windows，新月杀 v0.5.25）
 
 1. 准备游戏
 官方新月杀v0.5.25客户端：
@@ -6,7 +6,8 @@ https://github.com/Qsgs-Fans/FreeKill/releases/tag/v0.5.25
 GamePath应指向含FreeKill.exe、LunarLtk和ltk目录的游戏目录。
 
 2. 首次安装
-关闭游戏，完整解压“神孙佳乐-测试版.zip”。
+关闭游戏，从仓库最新发布下载小型扩展包并完整解压。
+公开仓库：https://github.com/ToyWitH/FreeKill_DIY_Extensions
 在解压目录中运行以下命令，替换实际游戏路径：
 
 powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath "D:\Games\FreeKill"
@@ -19,7 +20,9 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath
 已由助手更新的游戏无需重新安装，完全退出并重启即可。
 
 3. 游玩
-单机启动后，在武将一览中搜索“孙佳乐”，称号“大胃菌王”。
+单机启动后，在武将一览中查看已安装的DIY武将。
+当前收录孙佳乐（大胃菌王，神，4/4）与威孙佳乐（风卷残云，魏，4/8）。
+以下暗置牌操作适用于孙佳乐；威孙佳乐的技能说明见游戏内及武将设计.md。
 出牌和响应均点击“狗运”，先声明，再选择暗置手牌。
 非法声明保留显示但不可选；普通杀、火杀、雷杀统一声明“杀”。
 觉醒后声明基本牌、装备牌、一般锦囊牌或特殊锦囊牌。
@@ -39,6 +42,6 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath
 不要将旧版本备份覆盖到升级后的游戏版本。
 
 检查范围
-已通过Lua5.4语法、官方核心注册、32项技能场景及4项实际客户端检查。
+已通过Lua5.4语法、官方核心注册、37项技能场景、6项实际客户端检查及4项游戏事件结算检查。
 包含逆天展示暗置牌后刷新按钮的回归检查。
 完整GUI对局、双人联机尚未验证；延时锦囊暂不支持狗运增加目标。

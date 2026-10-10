@@ -2,7 +2,7 @@ param([string]$GamePath = $PSScriptRoot, [string]$PackagePath, [string]$Expected
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12
-$taskRepo = 'ToyWitH/FreeKill_diy_sunjiale'
+$taskRepo = 'ToyWitH/FreeKill_DIY_Extensions'
 $taskPatchPaths = @('LunarLtk/Components/Photo/EquipItem.qml', 'LunarLtk/Models/RoomModel.qml', 'LunarLtk/LtkLuaUtil.qml', 'ltk/core/request_type/play_card.lua', 'ltk/server/room.lua')
 $taskGameRoot = (Resolve-Path -LiteralPath $GamePath).Path.TrimEnd('\')
 function Get-TaskPath([string]$Base, [string]$Relative) {
@@ -23,7 +23,7 @@ function Get-TaskHash([string]$Path, [switch]$Normalize) {
   finally { $taskStream.Dispose(); $taskSha.Dispose() }
 }
 function Invoke-TaskDownload([string]$Uri, [string]$OutFile, [switch]$Binary) {
-  $taskHeaders = @{'User-Agent'='FreeKill-Sunjiale-Updater'; Accept='application/vnd.github+json'; 'X-GitHub-Api-Version'='2022-11-28'}
+  $taskHeaders = @{'User-Agent'='FreeKill-DIY-Updater'; Accept='application/vnd.github+json'; 'X-GitHub-Api-Version'='2022-11-28'}
   if ($Binary) { $taskHeaders.Accept = 'application/octet-stream' }
   for ($taskAttempt = 1; $taskAttempt -le 3; $taskAttempt++) {
     try {
@@ -58,7 +58,7 @@ try {
     if ($ExpectedSha256 -notmatch '^[a-fA-F0-9]{64}$') { throw '离线更新需要提供安装包SHA256。' }
     Copy-Item -LiteralPath $PackagePath -Destination $taskZip
   } else {
-    Write-Host '正在检查孙佳乐扩展的最新版本……'
+    Write-Host '正在检查DIY武将扩展的最新版本……'
     $taskRelease = Invoke-TaskDownload ('https://api.github.com/repos/' + $taskRepo + '/releases/latest')
     $taskAssetName = 'FreeKill_diy_sunjiale-' + $taskRelease.tag_name + '.zip'
     $taskAssets = @($taskRelease.assets | Where-Object {$_.name -eq $taskAssetName -and $_.state -eq 'uploaded'})
