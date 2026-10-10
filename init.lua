@@ -12,6 +12,10 @@ local wei = General:new(extension, "diywei__sunjiale", "wei", 4, 8)
 wei.prefix = extension.name
 wei:addSkills{"diywei_juanshi", "diywei_baotie"}
 
+local standard = General:new(extension, "diystd__sunjiale", "wei", 3, 4)
+standard.prefix = extension.name
+standard:addSkills{"diystd_jienang", "diystd_chishi", "diystd_taotie", "diystd_baoyi"}
+
 Fk:loadTranslationTable((require "packages.diy_sunjiale.translations"))
 
 return { extension }

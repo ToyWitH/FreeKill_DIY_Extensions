@@ -1,5 +1,25 @@
 -- Run with the installed FreeKill.exe --testfile <absolute path>.
 Testdiyzjl_ui_path = {
+  testStandardGeneralData = function()
+    local util = require "ltk.client.util"
+    local data = util:getGeneralData("diystd__sunjiale")
+    lu.assertEquals(data.hp, 3)
+    lu.assertEquals(data.maxHp, 4)
+    lu.assertEquals(data.kingdom, "wei")
+    lu.assertEquals(data.package, "diy_sunjiale")
+    lu.assertEquals(data.prefix, data.package)
+    lu.assertEquals(Fk:translate(data.prefix, "zh_CN"), "DIY武将")
+    lu.assertEquals(Fk:translate("diystd__sunjiale", "zh_CN"), "孙佳乐")
+    lu.assertEquals(Fk:translate("#diystd__sunjiale", "zh_CN"), "月华驱霾")
+    lu.assertEquals(#Fk.generals.diystd__sunjiale.other_skills, 4)
+    lu.assertTrue(Fk.skills.diystd_jienang:isInstanceOf(ActiveSkill))
+    lu.assertTrue(table.contains(Fk.skill_skels.diystd_taotie.tags, Skill.Compulsory))
+    lu.assertTrue(table.contains(Fk.skill_skels.diystd_baoyi.tags, Skill.Wake))
+    for _, name in ipairs(Fk.generals.diystd__sunjiale.other_skills) do
+      lu.assertNotNil(Fk.skills[name])
+      lu.assertNotEquals(Fk:translate(":" .. name, "zh_CN"), ":" .. name)
+    end
+  end,
   testWeiGeneralAndExtraSlash = function()
     local util = require "ltk.client.util"
     local data = util:getGeneralData("diywei__sunjiale")
