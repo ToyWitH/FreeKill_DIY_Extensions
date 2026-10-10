@@ -42,7 +42,7 @@ for _, name in ipairs(Fk.package_names) do
 end
 local general = Fk.generals.diyzjl__sunjiale
 assert(general and general.hp == 4 and general.maxHp == 4 and general.kingdom == "god")
-assert(Fk:translate("diyzjl__sunjiale", "zh_CN") == "孙佳乐")
+assert(Fk:translate("diyzjl__sunjiale", "zh_CN") == "神·孙佳乐")
 assert(Fk:translate("#diyzjl__sunjiale", "zh_CN") == "大胃菌王")
 assert(#general.other_skills == 4)
 for _, name in ipairs(general.other_skills) do assert(Fk.skills[name], name) end

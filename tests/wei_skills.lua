@@ -1,6 +1,6 @@
 local wei = Fk.generals.diywei__sunjiale
 assert(wei and wei.hp == 4 and wei.maxHp == 8 and wei.kingdom == "wei" and #wei.other_skills == 2)
-assert(Fk:translate(wei.name, "zh_CN") == "威孙佳乐")
+assert(Fk:translate(wei.name, "zh_CN") == "威·孙佳乐")
 assert(Fk:translate("#"..wei.name, "zh_CN") == "风卷残云")
 local juanshi = spec("diywei_juanshi", "active")
 local combo = spec("diywei_baotie", fk.CardUsing)
