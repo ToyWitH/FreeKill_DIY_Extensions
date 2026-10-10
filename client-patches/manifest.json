@@ -1,0 +1,27 @@
+[
+  {
+    "path": "LunarLtk/Components/Photo/EquipItem.qml",
+    "original": "e8e46e2731031eb319383d3c59daca7cee979d4db77d13c16036c3c2d7a26574",
+    "patched": "ea64ff052595d8d34507cf3ea77674c3037f42aaed3cbd5131412f94bb3ff3eb"
+  },
+  {
+    "path": "LunarLtk/Models/RoomModel.qml",
+    "original": "3d90f66df5ef0768639cbc64ba89feff0cc54c6af8a4068db752e4a64b25f3c3",
+    "patched": "6e9835988fdafd268187aa2bf0a614b00e930c244e8edd52ab27f26a97b406b1"
+  },
+  {
+    "path": "LunarLtk/LtkLuaUtil.qml",
+    "original": "db03ccd85e20d5aee59d695282b4243b8ebde45a36015a64120f438a93185cfc",
+    "patched": "e7b20600d7e4ceb250882e7a5c493a122b0b5ba3c973b33aa9f9581468bd9e65"
+  },
+  {
+    "path": "ltk/core/request_type/play_card.lua",
+    "original": "91bc5d1e302fdeea961b682ceb0854f0c7f0634af31516cadcba0e7200c14add",
+    "patched": "8627bf73299ec4575ec95a5287922f80dee0c80438d1bda6cd8ad95a94d51def"
+  },
+  {
+    "path": "ltk/server/room.lua",
+    "original": "968f0761ca016986d800e0265e1d41d16334168d2a5b3562d811965239562d54",
+    "patched": "cae2ee7111180161d2c4818d1d75fb634a78c5c69e3cc86b418ed615b48a6c13"
+  }
+]

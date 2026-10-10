@@ -1,0 +1,10 @@
+*.db
+*.db-wal
+*.db-shm
+*.log
+*.fk.rep
+*.before-zhangjiale
+freekill.client.config.json
+freekill.server.config.json
+__pycache__/
+dist/
