@@ -1,4 +1,4 @@
-local H = require "packages.diy_zhangjiale.helpers"
+local H = require "packages.diy_sunjiale.helpers"
 local skill = fk.CreateSkill{name = "diyzjl_yingli", tags = {Skill.Wake}}
 skill:addEffect(fk.EventPhaseStart, {
   can_trigger = function(self, event, target, player, data)

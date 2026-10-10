@@ -1,4 +1,4 @@
-local H = require "packages.diy_zhangjiale.helpers"
+local H = require "packages.diy_sunjiale.helpers"
 local skill = fk.CreateSkill{name = "diyzjl_gouyun"}
 skill:addEffect("viewas", {
   pattern = ".", prompt = function(self, player)

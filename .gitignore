@@ -3,7 +3,7 @@
 *.db-shm
 *.log
 *.fk.rep
-*.before-zhangjiale
+*.before-sunjiale
 freekill.client.config.json
 freekill.server.config.json
 __pycache__/

@@ -2,7 +2,7 @@
 
 新月杀（FreeKill）DIY武将扩展，目标版本 **v0.5.25 / Windows 64位**。
 
-神势力，男性，4点体力。武将显示名称为“孙佳乐”，内部标识沿用旧版本以兼容配置。
+神势力，男性，4点体力。武将显示名称为“孙佳乐”，内部标识已统一为sunjiale。
 
 ## 安装
 
@@ -14,7 +14,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath
 
 `GamePath` 指向含 `FreeKill.exe` 的目录。安装器会核对版本并备份兼容文件；检测到同名扩展时会停止，避免覆盖已有修改。已安装的用户请先备份原扩展再更新。
 
-也可以将本仓库克隆到游戏的 `packages/diy_zhangjiale` 目录。仅克隆扩展不会自动应用兼容补丁，仍需核对并安装 `client-patches` 中的5个文件；推荐使用发行版安装器。
+也可以将本仓库克隆到游戏的 `packages/diy_sunjiale` 目录。仅克隆扩展不会自动应用兼容补丁，仍需核对并安装 `client-patches` 中的5个文件；推荐使用发行版安装器。
 
 本仓库与扩展安装包不包含完整游戏客户端。官方游戏：[Qsgs-Fans/FreeKill](https://github.com/Qsgs-Fans/FreeKill)。
 

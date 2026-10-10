@@ -1,7 +1,7 @@
 -- Run with the installed FreeKill.exe --testfile <absolute path>.
 Testdiyzjl_ui_path = {
   testSelfTricksAndVisibleEquipment = function()
-    local H = require "packages.diy_zhangjiale.helpers"
+    local H = require "packages.diy_sunjiale.helpers"
     local p = Player:new()
     p.id, p.hp, p.maxHp = 999, 4, 4
     p.hasSkill = function() return true end
@@ -23,13 +23,13 @@ Testdiyzjl_ui_path = {
   end,
   testInstalledGeneralData = function()
     local util = require (UsingNewCore and "packages.freekill-core.ltk.client.util" or "ltk.client.util")
-    local data = util:getGeneralData("diyzjl__zhangjiale")
-    lu.assertEquals(data.package, "diy_zhangjiale")
+    local data = util:getGeneralData("diyzjl__sunjiale")
+    lu.assertEquals(data.package, "diy_sunjiale")
     lu.assertEquals(data.kingdom, "god")
     lu.assertEquals(data.hp, 4)
-    lu.assertEquals(Fk:translate("diyzjl__zhangjiale", "zh_CN"), "孙佳乐")
-    lu.assertEquals(Fk:translate("#diyzjl__zhangjiale", "zh_CN"), "大胃菌王")
-    lu.assertEquals(#Fk.generals.diyzjl__zhangjiale.other_skills, 4)
+    lu.assertEquals(Fk:translate("diyzjl__sunjiale", "zh_CN"), "孙佳乐")
+    lu.assertEquals(Fk:translate("#diyzjl__sunjiale", "zh_CN"), "大胃菌王")
+    lu.assertEquals(#Fk.generals.diyzjl__sunjiale.other_skills, 4)
     lu.assertTrue(Fk.skills.diyzjl_gouyun:isInstanceOf(ViewAsSkill))
     lu.assertFalse(Fk.skills.diyzjl_tangshi:isInstanceOf(ViewAsSkill))
     lu.assertNotNil(Fk.skills.diyzjl_nitian)
@@ -38,7 +38,7 @@ Testdiyzjl_ui_path = {
     lu.assertNotNil(Fk.skills.diyzjl_yingli)
   end,
   testRequestFilteredDeclarations = function()
-    local H = require "packages.diy_zhangjiale.helpers"
+    local H = require "packages.diy_sunjiale.helpers"
     local skill = Fk.skills.diyzjl_gouyun
     local ClientPlayer = require "ltk.client.clientplayer"
     local p = ClientPlayer:new({getId = function() return 999 end})

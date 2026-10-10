@@ -1,6 +1,6 @@
 return {
-  ["diy_zhangjiale"] = "神孙佳乐DIY", ["diyzjl"] = "DIY", ["diyzjl__zhangjiale"] = "孙佳乐",
-  ["#diyzjl__zhangjiale"] = "大胃菌王", ["designer:diyzjl__zhangjiale"] = "用户提供武将卡",
+  ["diy_sunjiale"] = "神孙佳乐DIY", ["diyzjl"] = "DIY", ["diyzjl__sunjiale"] = "孙佳乐",
+  ["#diyzjl__sunjiale"] = "大胃菌王", ["designer:diyzjl__sunjiale"] = "用户提供武将卡",
   ["diyzjl_nitian"] = "逆天",
   [":diyzjl_nitian"] = "锁定技，你的回合开始前，将一张牌当一张可对自己使用的锦囊牌仅对自己使用；一名角色的判定牌生效前，你展示并明置一张暗置手牌，同色则令判定失效，异色则获得判定牌。",
   ["diyzjl_tangshi"] = "唐氏",
