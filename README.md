@@ -6,7 +6,7 @@
 
 ## 下载与一键更新
 
-朋友第一次使用，下载[懒人包](https://github.com/ToyWitH/FreeKill_diy_sunjiale/releases/download/v0.2.0/FreeKill-Sunjiale-Portable-v0.2.0.zip)，完整解压后双击“双击启动.cmd”。游戏与扩展已经装好。
+朋友第一次使用，下载[懒人包](https://github.com/ToyWitH/FreeKill_diy_sunjiale/releases/download/v0.2.3/FreeKill-Sunjiale-Portable-v0.2.3.zip)，完整解压后双击“双击启动.cmd”。游戏与扩展已经装好。
 
 以后更新：完全关闭游戏 → 双击“双击更新.cmd” → 等待成功 → 重新启动。不需要GitHub账号。更新器只更新孙佳乐扩展、5个兼容文件和更新入口，保留账号、设置、录像与其他扩展；遇到失败自动恢复旧版。备份在游戏目录 `update-backups`。
 
@@ -58,9 +58,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File .\安装扩展.ps1 -GamePath
 
 更新器已在Windows PowerShell上通过首次安装、升级、重复运行、隐私数据保留、校验失败、越界路径、补丁冲突、写入失败回滚、下一版补丁及防降级检查。测试脚本需在完整开发工作区使用原版游戏文件运行。
 
-已通过32项技能场景、Lua 5.4语法与核心注册检查，以及4项实际客户端检查。客户端检查使用真实的 `ClientPlayer`，覆盖声明筛选、暗置牌重铸拦截及展示后按钮刷新。
+已通过37项技能场景、Lua 5.4语法与核心注册检查，以及6项实际客户端检查。客户端检查使用真实的 `ClientPlayer`，覆盖声明筛选、暗置牌重铸拦截及展示后按钮刷新。
 
 客户端检查文件为 `tests/client_module_path.lua`；复制到已安装游戏的 `test/lua/` 后，可使用 `FreeKill.exe --testfile test/lua/client_module_path.lua` 运行。
+
+另通过4项游戏自带框架的实际服务器结算检查，覆盖卷噬扣血取牌、桃杀连招及属性杀、重复连招、回合清除、连招打断及牌堆不足。复制 `tests/wei_integration.lua` 到已安装游戏的 `test/lua/`，使用 `FreeKill.exe --testfile test/lua/wei_integration.lua` 可复测。
 
 完整GUI对局及多人联机尚未验证。延时锦囊暂不支持狗运新增目标。
 
