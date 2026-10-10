@@ -81,6 +81,8 @@ Testdiyzjl_ui_path = {
     lu.assertEquals(Fk:translate("diyzjl__sunjiale", "zh_CN"), "神·孙佳乐")
     lu.assertEquals(Fk:translate("#diyzjl__sunjiale", "zh_CN"), "大胃菌王")
     lu.assertEquals(#Fk.generals.diyzjl__sunjiale.other_skills, 4)
+    lu.assertEquals(Fk:translate("diyzjl_trick", "zh_CN"), "普通锦囊牌")
+    lu.assertEquals(Fk:translate("diyzjl_delayed_trick", "zh_CN"), "特殊（延时）锦囊牌")
     lu.assertTrue(Fk.skills.diyzjl_gouyun:isInstanceOf(ViewAsSkill))
     lu.assertFalse(Fk.skills.diyzjl_tangshi:isInstanceOf(ViewAsSkill))
     lu.assertNotNil(Fk.skills.diyzjl_nitian)
@@ -105,6 +107,9 @@ Testdiyzjl_ui_path = {
       disabled_packs = {}, filtered_cards = {}, card_marks = {},
       getPlayerById = function(_, id) return id == p.id and p or other end}
     lu.assertNil(p.room)
+    lu.assertTrue(table.contains(H.allowedNames("slash"), "fire__slash"))
+    lu.assertTrue(table.contains(H.allowedNames("slash"), "thunder__slash"))
+    lu.assertEquals(H.allowedNames("slash|.|.|.|fire__slash"), {"fire__slash"})
     Fk.currentResponsePattern = "jink"
     lu.assertEquals(skill:interaction(p).choices, {"jink"})
     skill.interaction.data = "slash"

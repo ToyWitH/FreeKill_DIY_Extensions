@@ -12,7 +12,7 @@ def build(source, output, version):
         raise ValueError("version must be major.minor.patch")
     extension = source / "diy_sunjiale" if (source / "diy_sunjiale/init.lua").exists() else source
     files = {}
-    for name in ("init.lua", "helpers.lua", "translations.lua", "README.txt", "武将设计.md", "武将与技能规范.md", "LICENSE"):
+    for name in ("init.lua", "helpers.lua", "translations.lua", "README.txt", "武将设计.md", "武将与技能规范.md", "规则审阅记录.md", "LICENSE"):
         files["diy_sunjiale/" + name] = (extension / name).read_bytes()
     for directory in ("skills", "image"):
         for path in sorted((extension / directory).rglob("*")):

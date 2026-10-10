@@ -65,7 +65,10 @@ function H.allowedNames(pattern)
   local names = Fk:getAllCardNames("btde")
   if not pattern then return names end
   local exp = Exppattern:Parse(pattern)
-  return table.filter(names, function(name) return exp:matchExp(name) end)
+  return table.filter(names, function(name)
+    local card = Fk:cloneCard(name)
+    return exp:matchExp(card.trueName.."|.|.|.|"..card.name)
+  end)
 end
 
 -- Probe public prototypes, never the identity of a selected hidden hand card.
