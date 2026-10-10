@@ -1,5 +1,13 @@
 -- Run with the installed FreeKill.exe --testfile <absolute path>.
 Testdiyzjl_ui_path = {
+  testGeneralAvatarResources = function()
+    local util = require "ltk.client.util"
+    for _, name in ipairs({"diyzjl__sunjiale", "diywei__sunjiale", "diystd__sunjiale"}) do
+      local data = util:getGeneralData(name)
+      lu.assertEquals(data.extension, "diy_sunjiale")
+      lu.assertTrue(FileIO.exists("./packages/" .. data.extension .. "/image/generals/avatar/" .. name .. ".jpg"))
+    end
+  end,
   testStandardGeneralData = function()
     local util = require "ltk.client.util"
     local data = util:getGeneralData("diystd__sunjiale")
